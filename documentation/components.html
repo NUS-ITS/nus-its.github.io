@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://nus-its.github.io/documentation/components.html">
       
       
-        <link rel="prev" href="features.html">
+        <link rel="prev" href="overview.html">
       
       
         <link rel="next" href="../courses/cs3213/intro.html">
@@ -373,28 +373,7 @@
         
   
   <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="features.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Feature
+    Overview and Features
   </span>
   
 
@@ -457,9 +436,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#parser" class="md-nav__link">
+  <a href="#language-parser" class="md-nav__link">
     <span class="md-ellipsis">
-      Parser
+      Language Parser
     </span>
   </a>
   
@@ -1101,9 +1080,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#parser" class="md-nav__link">
+  <a href="#language-parser" class="md-nav__link">
     <span class="md-ellipsis">
-      Parser
+      Language Parser
     </span>
   </a>
   
@@ -1170,12 +1149,20 @@
 
 
 <h1 id="components-in-intelligent-tutoring-system">Components in Intelligent Tutoring System</h1>
-<h2 id="parser">Parser</h2>
+<h2 id="language-parser">Language Parser</h2>
+<p>To support multiple programming languages, we designed an internal intermediate program representation capable of expressing the majority of first-year-level syntax and semantics, such as variable declarations, control structures, and basic data types. This intermediate representation ensures that the core functionalities of the ITS can operate independently of the programming language used. For example, it enables lightweight program analyses, such as control flow, variable usage, and data dependency analysis.
+As the first step in the workflow, the ITS runs a grammar checker to identify the programming language of the current feedback request. Next, the parser component processes the source code of both the reference program and the student’s submission. It invokes the corresponding language-specific parser to generate the intermediate representation of the programs. This representation standardizes the code into a common format used by other components, which allows the ITS to function consistently across different languages. Currently, the parser component includes specific parsers for C, Java, and Python.</p>
 <h2 id="alignment">Alignment</h2>
+<p>One key difference between general program repair for large software and program repair for educational purposes is the availability of an expected program specification in the form of a reference implementation. The alignment component is designed to align the reference program with the student’s submission. It processes the intermediate representations of both the reference and student programs to identify matching basic blocks and map the existing variables for each function within the programs. The alignment algorithms are based on the similarity of control flow and variable usage, specifically using Def-Use Analysis, to compare the reference and student programs. The results of this alignment can then be used to pinpoint the locations where the reference and submitted programs diverge in behavior. Furthermore, this information is instrumental in attempting to repair the submitted program by leveraging the data from the reference program. Note that, the ITS takes in multiple reference solutions with different solving strategies as input which increases the alignment success rate like existing APR tools.</p>
 <h2 id="error-localizer-and-interpreter">Error Localizer and Interpreter</h2>
+<p>Error localization is a crucial step in APR systems that aims to identify the buggy locations within the software. In the context of computer programming education, error localization identifies specific basic blocks or expressions that violate the expected specifications. The error localizer component employs several dynamic execution-enabled localization algorithms to trigger erroneous behavior in the student’s program. These algorithms include trace-based localization and statistical fault localization. The dynamic program execution is facilitated by an interpreter component. This interpreter allows the execution of a program in its intermediate CFG-based representation without the need for compilation or execution on the actual system. It generates an execution trace with the sequence of executed basic blocks and a memory object, which holds the variable values at specific locations. The error localizer component utilizes the interpreter to execute test cases while observing the variable values at specific locations. This process enables the system to detect semantic differences between the reference and submitted programs, thereby pinpointing the precise locations of errors.</p>
 <h2 id="repair-engines">Repair Engines</h2>
+<p>Given the reference programs, student submissions, and the identified error locations as input, the repair component attempts to fix the submitted programs by generating edits that transform the student’s program to be semantically equivalent to the reference program. The repair component acts as an engine that can utilize various repair strategies, such as optimization-based repair, synthesis-based repair, and LLM-based repair. Upon receiving a repair request from the previous components, these repair strategies are invoked in parallel to search for potential repair candidates. The repair engine then selects the optimal repair candidate that minimally alters the student’s submission. This approach aims to guide students in correcting their mistakes while preserving their original intentions as much as possible. Note that, the repair candidate is represented at the level of the intermediate representation of the program, and we convert it back to the source code before proceeding to the feedback generation phase.</p>
 <h2 id="feedback-generators">Feedback Generators</h2>
+<p>With the collected information from previous components, the feedback component generates natural language explanations to guide students in correcting their mistakes without revealing the direct answer. This component incorporates a common front-end prompt interface with various LLM backends, allowing flexible switching between different LLMs and easy integration of new LLMs. Currently, it supports both commercial LLMs like GPT and Claude series, as well as open-source LLMs like LLaMA from Meta. We use GPT-3.5 as the default LLM backend to balance performance and cost.</p>
 <h2 id="automated-grader">Automated Grader</h2>
+<p>Test-suite based automated grading suffers from the problem that a small mistake by the student can cause many test cases to fail. To provide better support for tutors, we integrate an auto-grading capability in the ITS, which aims to test the <em>conceptual</em> understanding of the student and awards grades accordingly.
+This is achieved by constructing a concept graph from the student's attempt and comparing it with the concept graph of the instructor's reference solution. The aim is to automatically determine which of the ingredient concepts being tested by the programming assignment are correctly understood by the student. Given the instructor-provided reference solutions and students' incorrect solutions, we apply the abstraction rules to convert students' concrete implementation to conceptual understandings and compare them against the conceptual requirements in reference solutions. Based on the result, the grading component generates a grading report for the tutor. It assesses the student's submission by their missing or improperly used programming concepts to address the over-penalty issue in the conventional test-based assessment.</p>
 
 
 

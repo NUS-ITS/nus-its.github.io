@@ -26,6 +26,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://nus-its.github.io/courses/cs3213/concept.html</loc>
+         <lastmod>2024-08-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://nus-its.github.io/courses/cs3213/curriculum.html</loc>
          <lastmod>2024-08-11</lastmod>
          <changefreq>daily</changefreq>

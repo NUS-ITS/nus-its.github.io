@@ -1174,14 +1174,16 @@ In this example, we only have some concrete inputs of interest <span class="arit
 </div>
 
 <h2 id="parser">Parser</h2>
-<p>The reference program and the submitted (incorrect) program are given to the \parser component. For each program, it generates the corresponding internal program representation. This representation is based on the Control-Flow Graph (CFG). Finally, the results are passed to the \alignment component. The objective of the \parser components is to enable the other internal parts of the Intelligent Tutoring System to work independently from a specific programming language. The simplified illustration of the internal CFG-based program representation for the reference program is shown in Figure~\ref{fig:cfg-example}. Note that the (incorrect) student submission has the same structure, i.e., the same number of basic blocks, although a different content in the blocks.</p>
+<p>The reference program and the submitted (incorrect) program are given to the parser component. For each program, it generates the corresponding internal program representation. This representation is based on the Control-Flow Graph (CFG). Finally, the results are passed to the alignment component. The objective of the parser components is to enable the other internal parts of the Intelligent Tutoring System to work independently from a specific programming language. The simplified illustration of the internal CFG-based program representation for the reference program is shown in Figure~\ref{fig:cfg-example}. Note that the (incorrect) student submission has the same structure, i.e., the same number of basic blocks, although a different content in the blocks.</p>
 <figure id="fig:its-idea">
   <img src="../icons/cfg.png" width="200", height="100">
   <figcaption>Figure 2: Simplified illustration of the CFG-based internal program representation of the code in the example reference solution.</figcaption>
 </figure>
 
+<!-- ## Intermediate Representation -->
+
 <h2 id="alignment">Alignment</h2>
-<p>The \alignment component takes the two Program objects and identifies the matching basic blocks. Therefore, it aligns the two programs with regard to their CFG representation. Moreover, it maps the existing variables for each function inside the programs. The results can later be used to detect (error) locations where the reference and submitted programs behave differently. Additionally, this information helps to attempt the repair/fix of the submitted program by reusing information from the reference program. Our current baseline implementation follows the approach by Clara~\cite{clara_pldi2018}, which attempts to match the two programs based on their control flow and their variables.
+<p>The alignment component takes the two Program objects and identifies the matching basic blocks. Therefore, it aligns the two programs with regard to their CFG representation. Moreover, it maps the existing variables for each function inside the programs. The results can later be used to detect (error) locations where the reference and submitted programs behave differently. Additionally, this information helps to attempt the repair/fix of the submitted program by reusing information from the reference program. Our current baseline implementation follows the approach by Clara~\cite{clara_pldi2018}, which attempts to match the two programs based on their control flow and their variables.
 %
 In our example, the structure is the same, so the mapping is straightforward. Internally, we keep a mapping for each function and its basic blocks:<br />
 <span class="arithmatex">\(main:\{1=1, 2=2, 3=3, 4=4, 5=5, 6=6, 7=7\}\)</span></p>
@@ -1190,7 +1192,6 @@ In our example, the structure is the same, so the mapping is straightforward. In
 <h2 id="error-localizer-and-interpreter">Error Localizer and Interpreter</h2>
 <p>The error localizer component identifies locations that show erroneous behavior in the submitted program. This enables others components to formulate a repair/fix. 
 The error localizer component has access to the interpreter component to execute test cases while observing the values of variables at specific locations. It can use the interpreter to detect semantic differences between the reference and submitted programs.
-%
 For our example, we use a trace-based error localizer. It uses the interpreter to execute the inputs for both programs and compares the resulting execution traces. For the input <span class="arithmatex">\(n=2\)</span>, our error localizer identifies a value mismatch at location 4. It also detects which variable or expression holds the first observation of this mismatch: the loop condition in line 7 in the student's submission, <strong><em>j&lt;=N</em></strong>.</p>
 <h2 id="repair-engines">Repair Engines</h2>
 <p>The repair component attempts to fix the submitted program. For example, it can use the mapping to the reference program (see step 2) and the identified error locations (see step 3) to generate so-called local repairs that modify single statements in the submitted program. Multiple local repairs can be combined to represent more complex changes.

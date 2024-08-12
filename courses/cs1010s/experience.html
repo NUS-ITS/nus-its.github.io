@@ -22,7 +22,7 @@
     
     
       
-        <title>Experience Sharing - Intelligent Tutoring System for Programming Education</title>
+        <title>Experience - Intelligent Tutoring System for Programming Education</title>
       
     
     
@@ -77,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#experience-in-cs1010s" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -109,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Experience Sharing
+              Experience
             
           </span>
         </div>
@@ -745,12 +750,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="experience.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Experience Sharing
+    Experience
   </span>
   
 
@@ -917,6 +924,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -931,9 +940,12 @@
                   
 
 
-  <h1>Experience Sharing</h1>
-
-
+<h1 id="experience-in-cs1010s">Experience in CS1010S</h1>
+<p>We share our experience of deploying the ITS in CS1010S during the fall semester of the 2023-2024 academic year, which involved 571 students. CS1010S covers topics such as recursion, higher-order functions, abstract data types, basic data structures, sorting algorithms, and object-oriented programming through nine weekly assignments. In CS1010S, students submit their solutions on an LMS that automatically runs pre-defined test cases for programming assignments. 
+They can make multiple attempts to revise their solutions before the deadline. After the deadline, tutors manually review incorrect submissions and write personalized feedback to students who submit incorrect solutions.</p>
+<p>As a first step towards complete deployment, the current setup generates feedback visible only to the human tutors.</p>
+<p>We integrated our ITS with the LMS and deployed it for 30 programming tasks spanning six weeks of assignments. We excluded the first two introductory weeks and the final week, which involves OOP that the current ITS does not support. In addition to the traditional assignment workflow, the LMS invokes the ITS to automatically generate feedback when a student submits a solution that fails test cases. As a first step towards a complete deployment, the current deployment generates feedback visible only to the human tutors to support their manual feedback and grading efforts.</p>
+<p>Throughout the semester, the LMS keeps track of all students' submissions, and eventually, a total of 571 students submitted 3,117 incorrect solutions that failed the test cases of programming assignments in the LMS. The deployed ITS successfully generated semantically correct patches for 1,758 (56.4\%) incorrect submissions by its repair engine. A patch is deemed correct if it makes the original submission pass all test cases for a particular programming assignment. Then the feedback component generated corresponding natural language comments for these submissions.</p>
 
 
 

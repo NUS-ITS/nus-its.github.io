@@ -771,7 +771,16 @@
         <li class="md-nav__item">
   <a href="#web-plugin-for-its" class="md-nav__link">
     <span class="md-ellipsis">
-      Web Plugin for ITS
+      Web plugin for ITS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-requisites
     </span>
   </a>
   
@@ -797,7 +806,7 @@
         
   
   <span class="md-ellipsis">
-    Experience Sharing
+    Experience
   </span>
   
 
@@ -975,7 +984,16 @@
         <li class="md-nav__item">
   <a href="#web-plugin-for-its" class="md-nav__link">
     <span class="md-ellipsis">
-      Web Plugin for ITS
+      Web plugin for ITS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-requisites
     </span>
   </a>
   
@@ -997,8 +1015,43 @@
 
 
 <h1 id="cs1010s-programming-methodology">CS1010S Programming Methodology</h1>
-<h2 id="web-plugin-for-its">Web Plugin for ITS</h2>
-<p>In addition to the tightly coupled integration with Coursemology, we would also like other learning management systems (LMS) to easily benefit from the Intelligent Tutoring System (ITS). To achieve this goal, we have developed a web browser plugin for the ITS. The web plugin is a lightweight extension that can be easily installed in the web browser and used to provide feedback and grading suggestions for programming assignments in any LMS platform.</p>
+<h2 id="web-plugin-for-its">Web plugin for ITS</h2>
+<p>In addition to the tightly coupled integration with Coursemology, we would also like other learning management systems (LMS) to easily benefit from the Intelligent Tutoring System (ITS). To achieve this goal, we have developed a web browser plugin for the ITS. 
+The web plugin is a lightweight extension that can be installed in any web browser and used to provide feedback and grading suggestions for programming assignments in any LMS platform.</p>
+<figure id="fig:plugin-workflow">
+  <img src="icons/plugin.png" width="600", height="300">
+  <figcaption>Figure 1: Workflow of ITS Web Plugin.</figcaption>
+</figure>
+
+<p>Figure 1 demonstrates the workflow of the web plugin. The web plugin acts as an middleware between the LMS and the ITS. The core effort of integrating the ITS with a new LMS platform is to pass</p>
+<p>To bridge the gap between the LMS and the ITS, the web plugin acts as </p>
+<p>It automatically retrieves student submissions from the targeted LMS platform and sends them to the backend ITS for feedback generation. </p>
+<p>Overall, the web plugin provides:</p>
+<p>For course instructors,</p>
+<ul>
+<li>An interface to configure programming assignments, including problem statements, test cases, and reference solutions.</li>
+<li>An interface that tracks the <code>&lt;student submission, student feedback, drafted comment&gt;</code> pairs for each assignment.</li>
+<li>An interface that allows to customize the Generative AI models for feedback generation.</li>
+<li>An interface to configure student's permissions and access range to the ITS. (e.g., feedback request quota, feedback visibility, etc.)</li>
+</ul>
+<p>For students, </p>
+<ul>
+<li>An interface to submit programming assignments. (optional)</li>
+<li>An interface that request feedback from ITS for any submission.</li>
+<li>An interface that tracks the history of feedback and comments from the ITS.</li>
+</ul>
+<!-- The web plugin provides a simple interface for instructors to upload programming assignments, test cases, and reference solutions.  -->
+<!-- The web plugin allows independent to LMS platforms to integrate the ITS with minimal effort.  -->
+<h2 id="pre-requisites">Pre-requisites</h2>
+<ul>
+<li><a href="https://www.google.com/chrome/">Google Chrome</a> or <a href="https://www.microsoft.com/en-us/edge">Microsoft Edge</a> browser</li>
+<li>LMS authentication credentials (We provide local plugin deployment guidelines for privacy concerns)</li>
+<li>LMS API endpoint URL to fetch student submissions</li>
+</ul>
+<!-- ## Customizable 
+The plugin provides a simple interface for instructors to upload programming assignments, test cases, and reference solutions, which is independent to LMS platforms. 
+
+The plugin also allows students to submit their solutions and receive feedback from the ITS. -->
 
 
 

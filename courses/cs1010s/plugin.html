@@ -866,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs2040s/intro.md" class="md-nav__link">
+      <a href="../cs2040s/intro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1016,16 +1016,14 @@
 
 <h1 id="cs1010s-programming-methodology">CS1010S Programming Methodology</h1>
 <h2 id="web-plugin-for-its">Web plugin for ITS</h2>
-<p>In addition to the tightly coupled integration with Coursemology, we would also like other learning management systems (LMS) to easily benefit from the Intelligent Tutoring System (ITS). To achieve this goal, we have developed a web browser plugin for the ITS. 
+<p>In addition to the tightly coupled integration with Coursemology, we would also like other learning management systems (e.g., <a href="https://www.instructure.com/canvas/">Canvas</a>, <a href="https://www.blackboard.com/">Blackboard</a>) to easily benefit from the Intelligent Tutoring System (ITS). To achieve this goal, we have developed a web browser plugin for the ITS. 
 The web plugin is a lightweight extension that can be installed in any web browser and used to provide feedback and grading suggestions for programming assignments in any LMS platform.</p>
 <figure id="fig:plugin-workflow">
   <img src="icons/plugin.png" width="600", height="300">
   <figcaption>Figure 1: Workflow of ITS Web Plugin.</figcaption>
 </figure>
 
-<p>Figure 1 demonstrates the workflow of the web plugin. The web plugin acts as an middleware between the LMS and the ITS. The core effort of integrating the ITS with a new LMS platform is to pass</p>
-<p>To bridge the gap between the LMS and the ITS, the web plugin acts as </p>
-<p>It automatically retrieves student submissions from the targeted LMS platform and sends them to the backend ITS for feedback generation. </p>
+<p>Figure 1 demonstrates the workflow of the web plugin. The web plugin acts as an middleware between the LMS and the ITS. It proactively detects latest submissions from the LMS for each student and sends feedback generation requests to the ITS when requested by the student. The core effort of integrating the ITS with a new LMS platform is a communication protocol for the plugin to retrieve student submissions. The rest of interactions with the ITS are already implemented and handled by the plugin.</p>
 <p>Overall, the web plugin provides:</p>
 <p>For course instructors,</p>
 <ul>
@@ -1044,9 +1042,9 @@ The web plugin is a lightweight extension that can be installed in any web brows
 <!-- The web plugin allows independent to LMS platforms to integrate the ITS with minimal effort.  -->
 <h2 id="pre-requisites">Pre-requisites</h2>
 <ul>
-<li><a href="https://www.google.com/chrome/">Google Chrome</a> or <a href="https://www.microsoft.com/en-us/edge">Microsoft Edge</a> browser</li>
-<li>LMS authentication credentials (We provide local plugin deployment guidelines for privacy concerns)</li>
-<li>LMS API endpoint URL to fetch student submissions</li>
+<li><a href="https://www.google.com/chrome/">Google Chrome</a> or <a href="https://www.microsoft.com/en-us/edge">Microsoft Edge</a> browser.</li>
+<li>LMS authentication credentials. (We provide local plugin deployment guidelines for privacy concerns)</li>
+<li>LMS API endpoint URL to fetch student submissions.</li>
 </ul>
 <!-- ## Customizable 
 The plugin provides a simple interface for instructors to upload programming assignments, test cases, and reference solutions, which is independent to LMS platforms. 

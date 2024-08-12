@@ -14,7 +14,7 @@
         <link rel="prev" href="plugin.html">
       
       
-        <link rel="next" href="../../ip.html">
+        <link rel="next" href="../cs2040s/intro.html">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -753,6 +753,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Experience
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="experience.html" class="md-nav__link md-nav__link--active">
         
   
@@ -762,6 +773,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Results
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -818,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs2040s/intro.md" class="md-nav__link">
+      <a href="../cs2040s/intro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -927,6 +975,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Results
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -941,11 +1015,30 @@
 
 
 <h1 id="experience-in-cs1010s">Experience in CS1010S</h1>
-<p>We share our experience of deploying the ITS in CS1010S during the fall semester of the 2023-2024 academic year, which involved 571 students. CS1010S covers topics such as recursion, higher-order functions, abstract data types, basic data structures, sorting algorithms, and object-oriented programming through nine weekly assignments. In CS1010S, students submit their solutions on an LMS that automatically runs pre-defined test cases for programming assignments. 
-They can make multiple attempts to revise their solutions before the deadline. After the deadline, tutors manually review incorrect submissions and write personalized feedback to students who submit incorrect solutions.</p>
-<p>As a first step towards complete deployment, the current setup generates feedback visible only to the human tutors.</p>
-<p>We integrated our ITS with the LMS and deployed it for 30 programming tasks spanning six weeks of assignments. We excluded the first two introductory weeks and the final week, which involves OOP that the current ITS does not support. In addition to the traditional assignment workflow, the LMS invokes the ITS to automatically generate feedback when a student submits a solution that fails test cases. As a first step towards a complete deployment, the current deployment generates feedback visible only to the human tutors to support their manual feedback and grading efforts.</p>
-<p>Throughout the semester, the LMS keeps track of all students' submissions, and eventually, a total of 571 students submitted 3,117 incorrect solutions that failed the test cases of programming assignments in the LMS. The deployed ITS successfully generated semantically correct patches for 1,758 (56.4\%) incorrect submissions by its repair engine. A patch is deemed correct if it makes the original submission pass all test cases for a particular programming assignment. Then the feedback component generated corresponding natural language comments for these submissions.</p>
+<p>We share our experience of deploying the ITS in CS1010S during the fall semester of the 2023-2024 academic year, which involved 571 students. </p>
+<h2 id="setup">Setup</h2>
+<p>CS1010S covers topics such as recursion, higher-order functions, abstract data types, basic data structures, sorting algorithms, and object-oriented programming through nine weekly assignments. Students can make multiple attempts to revise their solutions before the deadline. After the deadline, TAs manually review incorrect submissions and write personalized feedback to students who submit incorrect solutions.<br />
+As a first step towards complete deployment, this setup restricted the generated feedback visible only to the human tutors.  </p>
+<ul>
+<li>We enabled ITS for 20+ programming assignments spanning six weeks of assignments. </li>
+<li>We excluded the first two introductory weeks and the final week, which involves object-oriented programming that the current ITS does not support.</li>
+<li>Coursemology forwards feedback generation requests to ITS only for finalised submissions that fail pre-defined test cases.</li>
+<li>Correct submissions from past semesters were used as reference solutions to enhance the alignment component.</li>
+</ul>
+<!-- We integrated our ITS with the LMS and deployed it for 30 programming tasks spanning six weeks of assignments. We excluded the first two introductory weeks and the final week, which involves OOP that the current ITS does not support. In addition to the traditional assignment workflow, the LMS invokes the ITS to automatically generate feedback when a student submits a solution that fails test cases. As a first step towards a complete deployment, the current deployment generates feedback visible only to the human tutors to support their manual feedback and grading efforts. -->
+
+<h2 id="results">Results</h2>
+<p>Throughout the semester, Coursemology collected 3,117 incorrect solutions from 571 students. </p>
+<ul>
+<li>The deployed ITS successfully generated correct patches (i.e. pass all test cases) for 1,758 (56.4%) incorrect submissions.</li>
+<li>Among those 1,758 correct patches, <strong><em>77.2%</em></strong> of the ITS-generated feedback are semantically equivalent to TAs feedback.</li>
+</ul>
+<p>The main bottleneck is that the current ITS focuses on offering last-mile help to students. It is not capable of generating step-by-step feedback for students who are stuck at the beginning or middle of a task. To address this limitation, we are planning to develop APR techniques for incomplete programs. Fortunately, the modular design of the ITS allows us to easily integrate such new APR techniques into the system once available.</p>
+<!-- ## Future Improvement
+
+***Lack of Substantial Content:***  Some students either submitted empty files or attempted to brute-force the public tests without finding a correct solution strategy. These incomplete submissions lacked the necessary content for the repair engine to generate meaningful repairs to represent students' thinking.
+
+***Non-functional Restrictions:*** Some submitted solutions passed all test cases but violated non-functional requirements not covered by the tests. For example, in an abstract data types assignment, students were required to reuse a specific abstract function. These violations needed manual checking by tutors. Failing to do so resulted in non-functional penalties that the current ITS could not fix. -->
 
 
 

@@ -1085,6 +1085,11 @@
 
 
 <h1 id="components-in-intelligent-tutoring-system">Components in Intelligent Tutoring System</h1>
+<figure id="fig:its-workflow">
+  <img src="../icons/its-workflow.png" width="1000", height="500">
+  <figcaption>Figure 1: Overview of the workflow of the Intelligent Tutoring System.</figcaption>
+</figure>
+
 <h2 id="language-parser">Language Parser</h2>
 <p>To support multiple programming languages, we designed an internal intermediate program representation capable of expressing the majority of first-year-level syntax and semantics, such as variable declarations, control structures, and basic data types. This intermediate representation ensures that the core functionalities of the ITS can operate independently of the programming language used. For example, it enables lightweight program analyses, such as control flow, variable usage, and data dependency analysis.
 As the first step in the workflow, the ITS runs a grammar checker to identify the programming language of the current feedback request. Next, the parser component processes the source code of both the reference program and the student’s submission. It invokes the corresponding language-specific parser to generate the intermediate representation of the programs. This representation standardizes the code into a common format used by other components, which allows the ITS to function consistently across different languages. Currently, the parser component includes specific parsers for C, Java, and Python.</p>

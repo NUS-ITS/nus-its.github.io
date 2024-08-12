@@ -757,15 +757,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#integration-with-its" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration with ITS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#traditional-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       Traditional Workflow
@@ -1009,15 +1000,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#integration-with-its" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration with ITS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#traditional-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       Traditional Workflow
@@ -1053,9 +1035,31 @@
 <h1 id="cs1010s-programming-methodology">CS1010S Programming Methodology</h1>
 <h2 id="coursemology-as-lms">Coursemology as LMS</h2>
 <p>Coursemology is an open source gamified learning manage system for Computer Science courses, which is widely used in NUS for programming courses.  Coursemology allows course instructors to setup programming assignments, quizzes, and other learning activities. Like other online judges, Coursemology provides an online code editor and programming environment for students to write, execute and submit their code. The Coursemology platform also provides a <strong><em>test-based grading system</em></strong> that automatically runs students' code against the test cases provided by the course instructor to check the correctness of the code. Moreover, Coursemology also allows course instructors and teaching assistants to leave <strong><em>manually written</em></strong> comments and feedback on students' code submissions.</p>
-<h2 id="integration-with-its">Integration with ITS</h2>
+<p>To improve the efficiency of grading and providing detailed feedback to CS1010S students, we have integrated the Intelligent Tutoring System (ITS) seamlessly with Coursemology to provide help for any programming assignments. </p>
+<!-- ## Integration with ITS -->
+
 <h2 id="traditional-workflow">Traditional Workflow</h2>
+<p>Figure 1 shows and illustrates the snapshot traditional workflow of grading programming assignments in Coursemology.  </p>
+<ol>
+<li>Course instructor needs to provide a problem statement, a set of public and private test cases, and optionally a reference solution for the programming assignment. A grading rubric is often distributed to the teaching assistants (TAs) to guide them in grading the assignments.</li>
+<li>Students then work on the assignment and submit their solutions to Coursemology. Typically wait for <strong><em>1-2 weeks</em></strong> for the comments from TAs</li>
+<li>Coursemology automatically evaluates the correctness of the student's code by running it against the test cases.</li>
+<li>The test-based evaluation result is often used as a reference, but teaching assistants (TAs) still need to manually inspect the student's code, grade and write feedback for each student submission based on the grading rubric. </li>
+</ol>
 <h2 id="its-enhanced-workflow">ITS Enhanced Workflow</h2>
+<p>Figure 2 shows and illustrates the snapshot enhanced workflow of grading programming assignments in Coursemology with the ITS. </p>
+<ol>
+<li>Course instructor needs to provide a problem statement, a set of public and private test cases, and <del>optionally</del> a reference solution for the programming assignment. A grading rubric is often distributed to the teaching assistants (TAs) to guide them in grading the assignments.</li>
+<li>Students then work on the assignment and submit their solutions to Coursemology. </li>
+<li>Coursemology automatically evaluates the correctness of the student's code by running it against the test cases.<ol>
+<li>Coursemology forwards the student's submission and send feedback generation request to the ITS's API endpoint.</li>
+<li><strong><em>ITS takes over the submission and response the formulated high-level feedback for the students in Coursemology.</em></strong> The detailed procudure is described in <a href="../../getting-started/usage.html">Overview and Example</a>.</li>
+</ol>
+</li>
+<li><del>The test-based evaluation result is often used as a reference, but teaching assistants (TAs) still need to manually inspect the student's code, grade and write feedback for each student submission based on the grading rubric.</del></li>
+<li>Coursemology highlights the feedback response from the ITS in the code editor and draft the comments for the TAs to review and submit.</li>
+<li>TAs review the ITS localized errors, explanation, drafted comments, add additional comments if necessary, and submit the final feedback to the students.</li>
+</ol>
 
 
 

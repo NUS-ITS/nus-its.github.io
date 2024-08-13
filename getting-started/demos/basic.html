@@ -1136,8 +1136,9 @@
 
 <h2 id="print-prime-number-within-a-range">Print Prime Number within a Range</h2>
 <p>We demonstrate the use of ITS through a few programming tasks at different difficulty levels.<br />
-We start with a typical task at the first-year programming course level (<a href="https://github.com/jyi/ITSP/blob/0553f683f99403efb5ef440af826c1d229a52376/dataset/Lab-5/2864/277497_buggy.c">resource</a>), which is a variant of the classic prime number problem.<br />
-The task is to print all prime numbers within a given range.  </p>
+We start with a typical task at the first-year programming course level (<a href="https://github.com/jyi/ITSP/blob/0553f683f99403efb5ef440af826c1d229a52376/dataset/Lab-5/2864/277497_buggy.c">resource</a>), which is a variant of the classic prime number problem.  </p>
+<!-- The task is to print all prime numbers within a given range.   -->
+
 <p>Problem Statement:</p>
 <p>Given two positive integers, <code>n1</code> and <code>n2</code>, output all the prime numbers between (and including) <code>n1</code> and <code>n2</code>, separated by a space each.</p>
 <p>The student makes three mistakes in the code:</p>
@@ -1320,17 +1321,18 @@ The task is to print all prime numbers within a given range.  </p>
 </div> -->
 </div>
 
+<p>Given the reference solution as expected program specification, the ITS identifies and fixes all three mistakes in the student submissions that introduce deviation from the expected behavior. The fixing patches are then provide as hint and elaborated by the GenAI-based feedback generator to produce a detailed explanation of the mistakes.</p>
 <h2 id="fixing-patches-from-its-repair-engine">Fixing Patches from ITS Repair Engine:</h2>
 <ul>
-<li>add <code>if(num==1){return 1;}</code> in check_prime function.</li>
-<li>remove <code>scanf("%d",&amp;num);</code> in check_prime function.</li>
-<li>change <code>printf("%d", i);</code> to <code>printf("%d ", i);</code> in the main function.</li>
+<li>add <code>if(num==1){return 1;}</code> in <code>check_prime</code> function.</li>
+<li>remove <code>scanf("%d",&amp;num);</code> in <code>check_prime</code> function.</li>
+<li>change <code>printf("%d", i);</code> to <code>printf("%d ", i);</code> in the <code>main</code> function.</li>
 </ul>
 <h2 id="final-its-feedback">Final ITS Feedback:</h2>
 <ol>
 <li>Misplaced Input Operation: The <code>check_prime</code> function unnecessarily takes an input. This is incorrect as the function is supposed to only check if the number passed to it is prime or not, and not to ask for any input. This causes the function to overwrite the input number num with a new user-provided value each time, defeating its purpose.</li>
-<li>Lack of Special Case Handling for 1: The function does not account for the fact that 1 is not a prime number. Without handling this case, the function may incorrectly identify 1 as a prime number.</li>
-<li>Output Format Issue: In the main function, when printing prime numbers, the output format is incorrect as it does not include a space between the numbers. This leads to the output being concatenated without spaces, making it difficult to read.</li>
+<li>Lack of Special Case Handling for 1: The function does not account for the fact that 1 is not a prime number.</li>
+<li>Output Format Issue: In the main function, when printing prime numbers, the output format is incorrect as it does not include a space between the numbers.</li>
 </ol>
 
 

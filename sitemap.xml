@@ -121,22 +121,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://nus-its.github.io/getting-started/basic.html</loc>
-         <lastmod>2024-08-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://nus-its.github.io/getting-started/ds.html</loc>
-         <lastmod>2024-08-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://nus-its.github.io/getting-started/leetcode.html</loc>
-         <lastmod>2024-08-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://nus-its.github.io/getting-started/overview.html</loc>
+         <lastmod>2024-08-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nus-its.github.io/getting-started/demos/basic.html</loc>
+         <lastmod>2024-08-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nus-its.github.io/getting-started/demos/ds.html</loc>
+         <lastmod>2024-08-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nus-its.github.io/getting-started/demos/leetcode.html</loc>
          <lastmod>2024-08-13</lastmod>
          <changefreq>daily</changefreq>
     </url>

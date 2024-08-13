@@ -393,6 +393,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fixing-patches-from-its-repair-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixing Patches from ITS Repair Engine:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-its-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final ITS Feedback:
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1081,6 +1099,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fixing-patches-from-its-repair-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixing Patches from ITS Repair Engine:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-its-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final ITS Feedback:
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1173,6 +1209,20 @@
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
+
+<h2 id="fixing-patches-from-its-repair-engine">Fixing Patches from ITS Repair Engine:</h2>
+<ul>
+<li>add <code>if (original.length != m * n) {
+        return new int[0][0];
+    }</code> in <code>construct2DArray</code> function.</li>
+<li>remove <code>if (i * result[0].length + j &gt;= original.length) {
+                return new int[0][0];
+            } else {}</code> in <code>construct2DArray</code> function.</li>
+</ul>
+<h2 id="final-its-feedback">Final ITS Feedback:</h2>
+<ol>
+<li>Misinterpretation of Requirement: The submission assumes that if the number of elements in the original array is less than m * n, it should return an empty 2D array. However, the requirement is that if it is impossible to construct an m x n 2D array using all the elements, it should return an empty array. This would happen if the length of original is not exactly equal to m * n.</li>
+</ol>
 
 
 

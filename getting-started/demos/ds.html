@@ -1283,7 +1283,7 @@
 <p>Despite the student submission looks correct at a first glance, it has an issue with the <code>build</code> helper function.<br />
 The student's implementation has a bug in the second case condition <code>if (high == low)</code>. This condition checker leads to an incorrect tree construction, where the code <code>skip the recursion for root node</code> and directly build the left and right subtree.<br />
 The mistake is subtle, but it reflects the inadequate understanding of the recursive termination condition.
-Interesting, this mistake is difficult to be directly detected by ChatGPT, as most of the code logic is correct. However, our repair engine can identify this issue and provide the correct patch to fix the problem.</p>
+Interesting, this mistake is difficult to be directly detected by ChatGPT, possibly because of the code logic is mostly correct. However, our repair engine can identify this issue and provide the correct patch to fix the problem.</p>
 <h2 id="fixing-patches-from-its-repair-engine">Fixing Patches from ITS Repair Engine:</h2>
 <ul>
 <li>add <code>if (high == low) {
